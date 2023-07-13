@@ -13,7 +13,7 @@ body{
     background: #c3c1c1;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    
     
 }
 
@@ -32,7 +32,13 @@ body{
     
 }
 
-
+/* main-intro */
+.main-intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
 
 /* page-intro-right-css */
 .page-intro-right {
@@ -40,7 +46,6 @@ body{
     background: transparent;
     width: 50%;
     height: 300px;
-    float: right;
 }
 
 .page-intro-right p{
@@ -73,7 +78,6 @@ body{
     text-align: center;
     width: 50%;
     height: 300px;
-    float: left;
     color: #2b2c2c;
 }
 
@@ -113,4 +117,120 @@ body{
     color: #fff;
     transition: .3s;
     box-shadow: 0px 0px 7px 7px #90b9c4;
+}
+
+
+
+
+
+/* media query */
+@media (max-width:1024px){
+    p.art {
+        font-size: 20px;
+    }
+    
+    .origin-text p {
+        font-size: 20px;
+    }
+    
+    textarea#test-area {
+        width: 400px;
+    }
+    
+}
+
+
+
+
+
+
+@media (max-width:768px){
+    textarea#test-area {
+        width: 290px;
+    }
+    
+    .page-intro-right {
+        margin-left: 0px;
+    }
+
+    .main-intro {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .page-intro {
+        padding-top: 10px;
+    }
+    
+    .page-intro-left {
+        margin-left: 17px;
+        width: 100%;
+        height: 207px;
+    }
+    
+    .page-intro-right {
+        margin-top: 21px;
+        width: 100%;
+    }
+    
+    .page-intro-right p {
+        margin-left: 10px;
+        
+    }
+    
+    .test-wrapper {
+        margin-left: 0px;
+    }
+}
+
+
+
+
+
+
+@media (max-width:425px){
+    .page-intro {
+        overflow-x: hidden;
+    }
+    
+    .page-intro-left {
+        width: 100%;
+        height: 340px !important;
+    }
+    
+    .page-intro-right {
+        width: 100%;
+        margin-top: 127px !important;
+    }
+    
+}
+
+
+
+@media (max-width:375px){
+    .page-intro-left {
+        width: 100%;
+        height: 431px !important;
+    }
+    
+    
+    .timer {font-size: 60px !important;}
+    
+    #test-area {
+        font-size: 12px;
+    }
+    
+    textarea#test-area {
+        width: 250px;
+    }
+
+}
+
+
+
+@media (max-width:320px){
+    .page-intro-left {
+        width: 100%;
+        height: 390px !important;
+    }
 }
