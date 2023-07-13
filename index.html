@@ -12,44 +12,50 @@
 <body>
     <div class="page-intro">
         <div class="container">
-
-            <!-- page-intro-right -->
-            <div class="page-intro-right">
-                <p>Template Text :</p>
-                <div id="origin-text">
-                    <p>The text to test.</p>
+            <div class="main-intro">
+                <!-- page-intro-left -->
+                <div class="page-intro-left">
+                    <article class="intro">
+                        <h1>JS Typing Speed Test</h1>
+                        <p class="art">
+                            The process of measuring typing speed is as follows
+                            When the user starts typing, the timer starts counting time
+                            !!! And by typing each letter by the user, the correspondence of the user's text with the
+                            displayed text
+                            is checked
+                        </p>
+                    </article>
                 </div>
 
-                <!-- text area -->
-                <div class="test-wrapper">
-                    <textarea id="test-area" name="textarea" rows="6"
-                        placeholder="By typing the first letter, the timer starts counting"></textarea>
+                <!-- page-intro-right -->
+                <div class="page-intro-right">
+                    <p>Template Text :</p>
+                    <div id="origin-text">
+                        <p>The text to test.</p>
+                    </div>
+
+                    <!-- text area -->
+                    <div class="test-wrapper">
+                        <textarea id="test-area" name="textarea" rows="6"
+                            placeholder="By typing the first letter, the timer starts counting"></textarea>
+                    </div>
+
+                    <!-- time counter -->
+                    <div class="meta">
+                        <section id="clock">
+                            <div class="timer">00:00:00</div>
+                        </section>
+
+                        <!-- for reset -->
+                        <button id="reset">Reset </button>
+                    </div>
                 </div>
 
-                <!-- time counter -->
-                <div class="meta">
-                    <section id="clock">
-                        <div class="timer">00:00:00</div>
-                    </section>
-
-                    <!-- for reset -->
-                    <button id="reset">Reset </button>
-                </div>
+                
+                
             </div>
 
-            <!-- page-intro-left -->
-            <div class="page-intro-left">
-                <article class="intro">
-                    <h1>JS Typing Speed Test</h1>
-                    <p class="art">
-                        The process of measuring typing speed is as follows
-                        When the user starts typing, the timer starts counting time
-                        !!! And by typing each letter by the user, the correspondence of the user's text with the
-                        displayed text
-                        is checked
-                    </p>
-                </article>
-            </div>
+
         </div>
     </div>
 </body>
