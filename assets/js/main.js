@@ -6,6 +6,8 @@ const textOrigin = document.querySelector("#origin-text p").innerHTML;//for chec
 
 const testWrapper = document.querySelector("div.test-wrapper textarea");//for show color to user
 
+const Btn = document.querySelector("#reset");//for control button
+
 
 
 var theTimer = [0,0,0,0];
@@ -53,8 +55,6 @@ function spellCheck(){
     let textMatch = textOrigin.substring(0,textEntered.length);//compare length text
 
     if (textEntered == textOrigin){
-
-        // testWrapper.style.borderColor="green";
         testWrapper.style.borderColor = "green";
         clearInterval(interval);
     }else{
@@ -67,6 +67,21 @@ function spellCheck(){
         }
     }
 }
+
+//for reset button and set interval
+function reset(){
+    clearInterval(interval);
+    interval=null;
+    var theTimer = [0,0,0,0];
+    timerRunning = false;
+
+
+    testArea.value = "";//for make empty textarea
+    timer.innerHTML="00:00:00";//for reset const timer
+    testWrapper.style.borderColor="#2b2c2c";
+}
+
+
 
 
 // for speed control timer
@@ -85,3 +100,5 @@ function Start(){
 testArea.addEventListener("keypress", Start); //for type 
 
 testArea.addEventListener("keyup", spellCheck);//for check text
+
+Btn.addEventListener("click", reset);
