@@ -1,11 +1,22 @@
 const timer = document.querySelector('.timer'); //make timer for class tag timer
 const testArea = document.querySelector("#test-area"); //for start timer after type letter
 
+const textOrigin = document.querySelector("#origin-text p").innerHTML;//for check compare text
+
+
+const testWrapper = document.querySelector("div.test-wrapper textarea");//for show color to user
+
+
+
 var theTimer = [0,0,0,0];
 
 
 
 var timerRunning = false;//for control speed control when user remove first letter
+
+
+var interval;
+
 
 
 // for print 00 
@@ -19,7 +30,7 @@ function zeroLead(time){
 }
 
 
-// for timer 
+// for run timer 
 function runTimer(){
     let currentTime = zeroLead(theTimer[0])+ ":" + zeroLead(theTimer[1]) + ":" + zeroLead(theTimer[2]);
 
@@ -36,8 +47,29 @@ function runTimer(){
 
 
 
+// for checking text
+function spellCheck(){
+    let textEntered = testArea.value;//for users's text
+    let textMatch = textOrigin.substring(0,textEntered.length);//compare length text
+
+    if (textEntered == textOrigin){
+
+        // testWrapper.style.borderColor="green";
+        testWrapper.style.borderColor = "green";
+        clearInterval(interval);
+    }else{
+        if(textEntered == textMatch){
+
+            testWrapper.style.borderColor = "gold";
+
+        }else{
+            testWrapper.style.borderColor = "red";
+        }
+    }
+}
 
 
+// for speed control timer
 function Start(){
 
     let textStartLength= testArea.value.length;
@@ -45,9 +77,11 @@ function Start(){
     if (textStartLength == 0 && !timerRunning){
 
         timerRunning = true;
-        setInterval(runTimer,10);
+      interval = setInterval(runTimer,10);
     }   
 }
 
 
 testArea.addEventListener("keypress", Start); //for type 
+
+testArea.addEventListener("keyup", spellCheck);//for check text
