@@ -54,6 +54,11 @@ body{
     color: #2b2c2c;
 }
 
+#origin-text {
+    background: aquamarine;
+    border-radius: 18px;
+}
+
 
 
 /* test-area-css */
