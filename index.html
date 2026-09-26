@@ -1,66 +1,106 @@
-<!DOCTYPE html>
-<html lang="en-US">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <title>JS Typing Speed Test</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="TypeBench is a framework-free typing benchmark with deterministic WPM metrics, keystroke accuracy, live error feedback, and local personal bests.">
+  <meta name="color-scheme" content="light dark">
+  <title>TypeBench — Typing Benchmark</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script type="module" src="./assets/js/main.js"></script>
 </head>
-
 <body>
-    <div class="page-intro">
-        <div class="container">
-            <div class="main-intro">
-                <!-- page-intro-left -->
-                <div class="page-intro-left">
-                    <article class="intro">
-                        <h1>JS Typing Speed Test</h1>
-                        <p class="art">
-                            The process of measuring typing speed is as follows
-                            When the user starts typing, the timer starts counting time
-                            !!! And by typing each letter by the user, the correspondence of the user's text with the
-                            displayed text
-                            is checked
-                        </p>
-                    </article>
-                </div>
+  <a class="skip-link" href="#benchmark">Skip to typing benchmark</a>
 
-                <!-- page-intro-right -->
-                <div class="page-intro-right">
-                    <p>Template Text :</p>
-                    <div id="origin-text">
-                        <p>The text to test.</p>
-                    </div>
+  <main class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Deterministic typing benchmark / zero dependencies</p>
+        <h1>Measure speed without hiding the math.</h1>
+      </div>
+      <p>
+        TypeBench starts on the first typed character, uses a monotonic browser clock,
+        separates net and raw WPM, tracks keystroke accuracy, and keeps your best completed
+        result locally in the browser.
+      </p>
+    </header>
 
-                    <!-- text area -->
-                    <div class="test-wrapper">
-                        <textarea id="test-area" name="textarea" rows="6"
-                            placeholder="By typing the first letter, the timer starts counting"></textarea>
-                    </div>
-
-                    <!-- time counter -->
-                    <div class="meta">
-                        <section id="clock">
-                            <div class="timer">00:00:00</div>
-                        </section>
-
-                        <!-- for reset -->
-                        <button id="reset">Reset </button>
-                    </div>
-                </div>
-
-                
-                
-            </div>
-
-
+    <section id="benchmark" class="benchmark" aria-labelledby="benchmark-title">
+      <div class="benchmark-heading">
+        <div>
+          <p class="section-index">Benchmark / 01</p>
+          <h2 id="benchmark-title">Copy the passage exactly.</h2>
         </div>
-    </div>
+        <div class="best-result">
+          <span>Personal best</span>
+          <strong data-best>No completed run yet</strong>
+        </div>
+      </div>
 
+      <div class="passage-panel">
+        <div class="passage-meta">
+          <span>Passage</span>
+          <strong data-passage-label></strong>
+        </div>
+        <p class="passage" data-passage aria-label="Text to type"></p>
+        <progress data-progress max="100" value="0" aria-label="Passage completion">0%</progress>
+      </div>
 
-    <script src="/assets/js/main.js"></script>
+      <div class="typing-panel">
+        <label for="typing-input">Your typing</label>
+        <textarea
+          id="typing-input"
+          data-input
+          rows="5"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-describedby="benchmark-status"
+          placeholder="Start typing here…"
+        ></textarea>
+
+        <p id="benchmark-status" class="status" data-status aria-live="polite">
+          Ready. The timer starts with your first character.
+        </p>
+      </div>
+
+      <section class="metrics" aria-label="Live typing metrics">
+        <article>
+          <span>Elapsed</span>
+          <strong data-timer>00:00.0</strong>
+        </article>
+        <article>
+          <span>Net WPM</span>
+          <strong data-wpm>0.0</strong>
+        </article>
+        <article>
+          <span>Raw WPM</span>
+          <strong data-raw-wpm>0.0</strong>
+        </article>
+        <article>
+          <span>Accuracy</span>
+          <strong data-accuracy>100.0%</strong>
+        </article>
+        <article>
+          <span>Mistyped keys</span>
+          <strong data-errors>0</strong>
+        </article>
+      </section>
+
+      <div class="actions">
+        <button class="primary-button" type="button" data-reset>Restart passage</button>
+        <button class="secondary-button" type="button" data-next>Next passage</button>
+      </div>
+
+      <aside class="method-note">
+        <p class="section-index">How it is measured</p>
+        <p>
+          Net WPM uses currently correct characters ÷ 5 ÷ elapsed minutes. Raw WPM uses
+          all inserted keystrokes ÷ 5 ÷ elapsed minutes. Accuracy is based on correct versus
+          mistyped inserted keystrokes, so correcting an error does not erase the attempt.
+        </p>
+      </aside>
+    </section>
+  </main>
 </body>
-
 </html>
